@@ -56,11 +56,16 @@
         .table th, .table td {
             vertical-align: middle;
         }
-        .analysis-summary {
-            background-color: #e9ecef;
-            padding: 10px;
-            margin-bottom: 10px;
+        .btn-view-all {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
             border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-view-all:hover {
+            background-color: #0056b3;
+            color: #fff;
         }
     </style>
 </head>
@@ -83,7 +88,7 @@
             <div class="card">
                 <div class="card-header">
                     <span>Stock Recommendations</span>
-                    <a href="#">View all</a>
+                    <a href="#" class="btn-view-all">View all</a>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -91,11 +96,11 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>High Demand Products</span>
-                                    <a href="#">View all</a>
+                                    <a href="#" class="btn-view-all">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <div class="analysis-summary">
-                                        <p>These products have high demand and require increased stock levels to meet customer needs.</p>
+                                    <div class="alert alert-info" role="alert">
+                                        These products have high demand and require increased stock levels to meet customer needs.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -137,11 +142,11 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Low Demand Products</span>
-                                    <a href="#">View all</a>
+                                    <a href="#" class="btn-view-all">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <div class="analysis-summary">
-                                        <p>These products have low demand and require decreased stock levels to avoid overstocking.</p>
+                                    <div class="alert alert-info" role="alert">
+                                        These products have low demand and require decreased stock levels to avoid overstocking.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -185,7 +190,7 @@
             <div class="card">
                 <div class="card-header">
                     <span>Product Recommendations</span>
-                    <a href="#">View all</a>
+                    <a href="#" class="btn-view-all">View all</a>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -193,11 +198,11 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Related products</span>
-                                    <a href="#">View all</a>
+                                    <a href="#" class="btn-view-all">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <div class="analysis-summary">
-                                        <p>These products are often bought together and can be recommended as related products to increase sales.</p>
+                                    <div class="alert alert-info" role="alert">
+                                        These products are often bought together and can be recommended as related products to increase sales.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -239,11 +244,11 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Bundle offer products</span>
-                                    <a href="#">View all</a>
+                                    <a href="#" class="btn-view-all">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <div class="analysis-summary">
-                                        <p>These products are recommended for bundle offers to provide better value to customers and increase sales.</p>
+                                    <div class="alert alert-info" role="alert">
+                                        These products are recommended for bundle offers to provide better value to customers and increase sales.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -287,11 +292,11 @@
             <div class="card">
                 <div class="card-header">
                     <span>Price Recommendations</span>
-                    <a href="#">View all</a>
+                    <a href="#" class="btn-view-all">View all</a>
                 </div>
                 <div class="card-body">
-                    <div class="analysis-summary">
-                        <p>These products have high search volume but low purchase rates. Consider offering discounts to increase sales.</p>
+                    <div class="alert alert-info" role="alert">
+                        These products have high search volume but low purchase rates. Consider offering discounts to increase sales.
                     </div>
                     <div class="table-responsive">
                         <table class="table">

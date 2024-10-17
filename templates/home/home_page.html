@@ -67,6 +67,30 @@
         .table td {
             vertical-align: middle;
         }
+
+        .btn-view-all i {
+            font-size: 30px;
+            /* Adjust the size of the icon */
+            color: #34373b;
+            /* Change the icon color */
+        }
+
+        .btn-view-all:hover {
+            color: #273022;
+            /* Change color on hover */
+            text-decoration: none;
+            /* Remove underline */
+        }
+
+        .btn-view-all {
+            text-decoration: none;
+            /* Remove underline from anchor tag */
+        }
+
+        .view-all-text {
+            color: #273022;
+            /* Change the text color to blue */
+        }
     </style>
 </head>
 
@@ -94,7 +118,11 @@
             <div class="card">
                 <div class="card-header">
                     <span>Analytics Dashboard</span>
-                    <a href="{{ url_for('AnalyticsDashboard') }}">View all</a>
+                    <!-- <a href="{{ url_for('AnalyticsDashboard') }}" class="btn-view-all">View all</a> -->
+                    <a href="{{ url_for('AnalyticsDashboard') }}" class="btn-view-all" aria-label="View all">
+                        <span class="view-all-text">View all</span><i class="fas fa-eye"></i>
+                        <!-- Eye icon representing "view" -->
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -103,11 +131,12 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Total Searches per Product(1.1.1)</span>
-                                    <a href="#">View all</a>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-info" role="alert">
-                                        Products like PD1004, PD1007, and PD1005 have received the highest number of searches, indicating strong customer interest in these items. 
+                                        Products like PD1004, PD1007, and PD1005 have received the highest number of
+                                        searches, indicating strong customer interest in these items.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -139,11 +168,13 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Total Searches per Product(1.1.2)</span>
-                                    <a href="#">View all</a>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-info" role="alert">
-                                        PD1010 (12.6), PD1005 (11.44), and PD1003 (11.29) have high ratios, meaning it takes many searches before one purchase is made. These products may have visibility but struggle to convert interest into sales.
+                                        PD1010 (12.6), PD1005 (11.44), and PD1003 (11.29) have high ratios, meaning it
+                                        takes many searches before one purchase is made. These products may have
+                                        visibility but struggle to convert interest into sales.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -178,7 +209,10 @@
             <div class="card">
                 <div class="card-header">
                     <span>Inventory Optimization</span>
-                    <a href="{{ url_for('InventoryDashboard') }}">View all</a>
+                    <a href="{{ url_for('InventoryDashboard') }}" class="btn-view-all" aria-label="View all">
+                        <span class="view-all-text">View all</span><i class="fas fa-eye"></i>
+                        <!-- Eye icon representing "view" -->
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -186,11 +220,12 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Total Searches per Product(2.1.1)</span>
-                                    <a href="#">View all</a>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-info" role="alert">
-                                        Immediate action is required to replenish the stock levels for these high-demand products to prevent stockouts.
+                                        Immediate action is required to replenish the stock levels for these high-demand
+                                        products to prevent stockouts.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -222,11 +257,12 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Total Searches per Product(2.1.3)</span>
-                                    <a href="#">View all</a>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-info" role="alert">
-                                        Maintaining stock levels according to the optimal stock quantity and daily demand helps ensure that products are neither overstocked nor understocked.
+                                        Maintaining stock levels according to the optimal stock quantity and daily
+                                        demand helps ensure that products are neither overstocked nor understocked.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -261,7 +297,11 @@
             <div class="card">
                 <div class="card-header">
                     <span>Sales Booster Features</span>
-                    <a href="{{ url_for('SalesBoostDashboard') }}">View all</a>
+                    <!-- <a href="{{ url_for('SalesBoostDashboard') }}" class="btn-view-all">View all</a> -->
+                    <a href="{{ url_for('SalesBoostDashboard') }}" class="btn-view-all" aria-label="View all">
+                        <span class="view-all-text">View all</span><i class="fas fa-eye"></i>
+                        <!-- Eye icon representing "view" -->
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -269,11 +309,12 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Total Searches per Product(3.2.1)</span>
-                                    <a href="#">View all</a>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-info" role="alert">
-                                        These products have high demand and require increased stock levels to meet customer needs.
+                                        These products have high demand and require increased stock levels to meet
+                                        customer needs.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">
@@ -305,11 +346,12 @@
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <span>Total Searches per Product(3.1.3)</span>
-                                    <a href="#">View all</a>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="alert alert-info" role="alert">
-                                        Investigate any common reasons for abandonment across multiple customers, such as unclear pricing or high additional costs at checkout.
+                                        Investigate any common reasons for abandonment across multiple customers, such
+                                        as unclear pricing or high additional costs at checkout.
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table">

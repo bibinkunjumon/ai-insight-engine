@@ -1,47 +1,59 @@
 <html>
+
 <head>
     <title>Analytics Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
+            transform: scale(1);
         }
+
         .sidebar {
             background-color: #ffffff;
             padding: 20px;
             height: 100vh;
             border-right: 1px solid #dee2e6;
         }
+
         .sidebar a {
             display: block;
             padding: 10px 0;
             color: #000;
             text-decoration: none;
         }
+
         .sidebar a:hover {
             background-color: #e9ecef;
         }
+
         .content {
             padding: 20px;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .header h1 {
             font-size: 24px;
             font-weight: bold;
         }
+
         .header .search-bar {
             width: 300px;
         }
+
         .card {
             margin-bottom: 20px;
         }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -50,11 +62,14 @@
             padding: 10px 20px;
             font-weight: bold;
         }
-        .table th, .table td {
+
+        .table th,
+        .table td {
             vertical-align: middle;
         }
     </style>
 </head>
+
 <body>
     <div class="d-flex">
         <div class="sidebar">
@@ -63,9 +78,12 @@
                 <span class="fs-4">Optimizer</span>
             </div>
             <a href="/"> <i class="fas fa-boxes fa-1x me-1"></i>Home</a>
-            <a href="{{ url_for('AnalyticsDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Analytics Dashboard</a>
-            <a href="{{ url_for('InventoryDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Inventory Optimization</a>
-            <a href="{{ url_for('SalesBoostDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Sales Booster Features</a>
+            <a href="{{ url_for('AnalyticsDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Analytics
+                Dashboard</a>
+            <a href="{{ url_for('InventoryDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Inventory
+                Optimization</a>
+            <a href="{{ url_for('SalesBoostDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Sales Booster
+                Features</a>
         </div>
         <div class="content flex-grow-1">
             <div class="header">
@@ -78,94 +96,142 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Total Searches per Product -->
-                                    <span>Total Searches per Product(1.1.1)</span>
-                                    <a href="#">View all</a>
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Total Searches per Product -->
+                                <span>Total Searches per Product(1.1.1)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    The data represents how often each product has been searched, which can be
+                                    useful for understanding customer interest in various products.
+                                    Products like PD1004, PD1007, and PD1005 have received the highest number of
+                                    searches, indicating strong customer interest in these items.
+                                    This data can be used to assess demand and help with inventory management or
+                                    marketing strategies, such as promoting the most searched products or ensuring
+                                    stock availability.
                                 </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["1.1.1"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.1.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    {% if all_tables_data["1.1.1"] %}
+                                                    <tr>
+                                                        {% for column in all_tables_data["1.1.1"]['columns'] %}
+                                                        <th>{{ column }}</th>
+                                                        {% endfor %}
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                    {% for row in all_tables_data["1.1.1"]['data'] %}
+                                                    <tr>
+                                                        {% for item in row %}
+                                                        <td>{{ item }}</td>
+                                                        {% endfor %}
+                                                    </tr>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["1.1.1"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tbody>
+                                                {% endif %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="static/images/1.1.1.png" alt="Image description here"
+                                            style="width: 100%; height: auto;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- High Search, Low Purchase Products -->
-                                    <span>High Search, Low Purchase Products(1.1.2)</span>
-                                    <a href="#">View all</a>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["1.1.2"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.1.2"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- High Search, Low Purchase Products -->
+                                <span>High Search, Low Purchase Products(1.1.2)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    PD1010 (12.6), PD1005 (11.44), and PD1003 (11.29) have high ratios, meaning it
+                                    takes many searches before one purchase is made.
+
+                                    These products may have visibility but struggle to convert interest into sales.
+                                    Factors like pricing, product details, or product appeal could be hindering
+                                    conversion. </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    {% if all_tables_data["1.1.2"] %}
+                                                    <tr>
+                                                        {% for column in all_tables_data["1.1.2"]['columns'] %}
+                                                        <th>{{ column }}</th>
+                                                        {% endfor %}
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                    {% for row in all_tables_data["1.1.2"]['data'] %}
+                                                    <tr>
+                                                        {% for item in row %}
+                                                        <td>{{ item }}</td>
+                                                        {% endfor %}
+                                                    </tr>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["1.1.2"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tbody>
+                                                {% endif %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="static/images/1.1.1.png" alt="Image description here"
+                                            style="width: 100%; height: auto;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Low Search Products -->
-                                    <span>Low Search Products(1.1.3)</span>
-                                    <a href="#">View all</a>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Low Search Products -->
+                                <span>Low Search Products(1.1.3)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    PD1001 has the lowest number of searches (134), indicating minimal customer
+                                    interest in this product.
+
+                                    Products like PD1006, PD1002, and PD1009 also have relatively low search
+                                    volumes, suggesting that these products may not be as visible or attractive to
+                                    customers.
+
+                                    These low-search products may benefit from increased visibility through
+                                    promotions, better placement on the website, or price adjustments.
                                 </div>
-                                <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.1.3"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.1.3"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.1.3"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.1.3"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -174,6 +240,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -183,30 +250,42 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Products Left in Cart -->
-                                    <span>Products Left in Cart(1.2.1)</span>
-                                    <a href="#">View all</a>
-                                </div>
-                                <div class="card-body">
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Products Left in Cart -->
+                                <span>Products Left in Cart(1.2.1)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    PD1001 has the highest number of cart additions (28), indicating strong customer
+                                    intent to purchase.
+
+                                    Products like PD1002 and PD1004 also show decent levels of customer interest
+                                    with significant cart additions.
+
+                                    PD1005 has only 5 cart additions, which might indicate less interest or other
+                                    factors preventing customers from adding it to the cart.
+
+                                    Feedback system to check why cart is abandoned required. </div>
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.2.1"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.2.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.2.1"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.2.1"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -215,30 +294,44 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Time Spent on Product Pages -->
-                                    <span>Time Spent on Product Pages(1.2.2)</span>
-                                    <a href="#">View all</a>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Time Spent on Product Pages -->
+                                <span>Time Spent on Product Pages(1.2.2)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    PD1010 has a very high time spent (91.17 minutes) with zero purchases,
+                                    indicating significant customer interest but no conversion. This product may
+                                    need further investigation into potential barriers to purchase, such as pricing
+                                    or product details.
+
+                                    Similarly, PD1002 has a considerable amount of time spent (46.84 minutes) with
+                                    no purchases.
+
+                                    Customer interest with time spent but no purchases, signaling potential issues
+                                    like lack of appeal or competitive pricing.
                                 </div>
-                                <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.2.2"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.2.2"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.2.2"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.2.2"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -247,6 +340,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -257,30 +351,41 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Most Purchased Products -->
-                                    <span>Most Purchased Products(1.3.1)</span>
-                                    <a href="#">View all</a>
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Most Purchased Products -->
+                                <span>Most Purchased Products(1.3.1)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    PD1010 (12.6), PD1005 (11.44), and PD1003 (11.29) have high ratios, indicating
+                                    they require many searches before a purchase is made. These products are
+                                    struggling to convert searches into actual sales.
+
+                                    Potential reasons for low conversion could include:
+
+                                    Pricing issues (too high compared to competitors),Poor product descriptions or
+                                    lack of customer trust,Product details or images might not be appealing enough.
                                 </div>
-                                <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.3.1"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.3.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.3.1"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.3.1"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -289,30 +394,40 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Least Purchased Products -->
-                                    <span>Least Purchased Products(1.3.2)</span>
-                                    <a href="#">View all</a>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Least Purchased Products -->
+                                <span>Least Purchased Products(1.3.2)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    PD1002 (1.87) and PD1009 (1.87) show solid conversion rates, requiring fewer
+                                    than two searches to result in a purchase. These products are efficiently
+                                    converting customer interest into sales.
+
+                                    These products likely have well-optimized pricing, appealing product
+                                    descriptions, or strong customer interest, driving conversions.
                                 </div>
-                                <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.3.2"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.3.2"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.3.2"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.3.2"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -321,6 +436,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -331,30 +447,36 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Product Comparison -->
-                                    <span>Product Comparison(1.4.1)</span>
-                                    <a href="#">View all</a>
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Product Comparison -->
+                                <span>Product Comparison(1.4.1)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    This behavior suggests that these products are potentially strong alternatives
+                                    or substitutes for other products in the catalog, which can inform cross-sell
+                                    strategies or highlight their appeal in different contexts.
                                 </div>
-                                <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.4.1"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.4.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.4.1"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.4.1"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -363,30 +485,39 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <!-- Repeated Visits -->
-                                    <span>Repeated Visits(1.4.2)</span>
-                                    <a href="#">View all</a>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!-- Repeated Visits -->
+                                <span>Repeated Visits(1.4.2)</span>
+                                <a href="#">View all</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info" role="alert">
+                                    These products might benefit from further examination, such as reviewing product
+                                    details, pricing, or offering targeted incentives (e.g., discounts or
+                                    promotions) to convert these repeat visits into purchases.Additionally, consider
+                                    using strategies like retargeting ads or personalized follow-ups for customers
+                                    who frequently revisit a product but don't complete a purchase.
                                 </div>
-                                <div class="card-body">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             {% if all_tables_data["1.4.2"] %}
-                                                <tr>  
-                                                    {% for column in all_tables_data["1.4.2"]['columns'] %}
-                                                        <th>{{ column }}</th>  
-                                                    {% endfor %}
-                                                </tr>  
-                                            
+                                            <tr>
+                                                {% for column in all_tables_data["1.4.2"]['columns'] %}
+                                                <th>{{ column }}</th>
+                                                {% endfor %}
+                                            </tr>
+
                                         </thead>
                                         <tbody>
                                             {% for row in all_tables_data["1.4.2"]['data'] %}
                                             <tr>
-                                            {% for item in row %}
+                                                {% for item in row %}
                                                 <td>{{ item }}</td>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -395,10 +526,12 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

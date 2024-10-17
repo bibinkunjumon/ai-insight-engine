@@ -1,47 +1,59 @@
 <html>
+
 <head>
     <title>Inventory Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
+            transform: scale(1);
         }
+
         .sidebar {
             background-color: #ffffff;
             padding: 20px;
             height: 100vh;
             border-right: 1px solid #dee2e6;
         }
+
         .sidebar a {
             display: block;
             padding: 10px 0;
             color: #000;
             text-decoration: none;
         }
+
         .sidebar a:hover {
             background-color: #e9ecef;
         }
+
         .content {
             padding: 20px;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .header h1 {
             font-size: 24px;
             font-weight: bold;
         }
+
         .header .search-bar {
             width: 300px;
         }
+
         .card {
             margin-bottom: 20px;
         }
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -50,11 +62,14 @@
             padding: 10px 20px;
             font-weight: bold;
         }
-        .table th, .table td {
+
+        .table th,
+        .table td {
             vertical-align: middle;
         }
     </style>
 </head>
+
 <body>
     <div class="d-flex">
         <div class="sidebar">
@@ -63,9 +78,12 @@
                 <span class="fs-4">Optimizer</span>
             </div>
             <a href="/"> <i class="fas fa-boxes fa-1x me-1"></i>Home</a>
-            <a href="{{ url_for('AnalyticsDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Analytics Dashboard</a>
-            <a href="{{ url_for('InventoryDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Inventory Optimization</a>
-            <a href="{{ url_for('SalesBoostDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Sales Booster Features</a>
+            <a href="{{ url_for('AnalyticsDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Analytics
+                Dashboard</a>
+            <a href="{{ url_for('InventoryDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Inventory
+                Optimization</a>
+            <a href="{{ url_for('SalesBoostDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Sales Booster
+                Features</a>
         </div>
         <div class="content flex-grow-1">
             <div class="header">
@@ -79,7 +97,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6"> -->
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <!-- Total Searches per Product -->
@@ -87,31 +105,37 @@
                                     <a href="#">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["2.1.1"] %}
-                                                <tr>  
+                                    <div class="alert alert-info" role="alert">
+                                        Immediate action is required to replenish the stock levels for these high-demand
+                                        products to prevent stockouts.
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                {% if all_tables_data["2.1.1"] %}
+                                                <tr>
                                                     {% for column in all_tables_data["2.1.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                                    <th>{{ column }}</th>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["2.1.1"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {% for row in all_tables_data["2.1.1"]['data'] %}
+                                                <tr>
+                                                    {% for item in row %}
+                                                    <td>{{ item }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            {% endif %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <!-- Low-Demand Products: -->
@@ -119,31 +143,40 @@
                                     <a href="#">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["2.1.2"] %}
-                                                <tr>  
+                                    <div class="alert alert-info" role="alert">
+                                        Action should be taken to reduce the stock of low-demand products, either
+                                        through discounts, promotions, or adjusting procurement strategies.
+
+                                        Avoid overstocking these low-demand items in the future by closely aligning
+                                        procurement decisions with actual demand patterns.
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                {% if all_tables_data["2.1.2"] %}
+                                                <tr>
                                                     {% for column in all_tables_data["2.1.2"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                                    <th>{{ column }}</th>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["2.1.2"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {% for row in all_tables_data["2.1.2"]['data'] %}
+                                                <tr>
+                                                    {% for item in row %}
+                                                    <td>{{ item }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            {% endif %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <!-- Optimal Stock Quantity: -->
@@ -151,30 +184,37 @@
                                     <a href="#">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["2.1.3"] %}
-                                                <tr>  
+                                    <div class="alert alert-info" role="alert">
+                                        Maintaining stock levels according to the optimal stock quantity and daily
+                                        demand helps ensure that products are neither overstocked nor understocked,
+                                        minimizing storage costs while meeting customer demand.
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                {% if all_tables_data["2.1.3"] %}
+                                                <tr>
                                                     {% for column in all_tables_data["2.1.3"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                                    <th>{{ column }}</th>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["2.1.3"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {% for row in all_tables_data["2.1.3"]['data'] %}
+                                                <tr>
+                                                    {% for item in row %}
+                                                    <td>{{ item }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            {% endif %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -184,7 +224,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6"> -->
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <!-- Raw Material Requirements -->
@@ -192,31 +232,36 @@
                                     <a href="#">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["2.2.1"] %}
-                                                <tr>  
+                                    <div class="alert alert-info" role="alert">
+                                        Immediate procurement of raw materials is essential for products like PD1002, PD1003, and PD1004 to prevent stockouts and ensure smooth operations.
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                {% if all_tables_data["2.2.1"] %}
+                                                <tr>
                                                     {% for column in all_tables_data["2.2.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                                    <th>{{ column }}</th>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["2.2.1"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {% for row in all_tables_data["2.2.1"]['data'] %}
+                                                <tr>
+                                                    {% for item in row %}
+                                                    <td>{{ item }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            {% endif %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        <!-- </div> -->
+                        <!-- <div class="col-md-6"> -->
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <!-- Supply Chain Integration -->
@@ -224,30 +269,37 @@
                                     <a href="#">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["2.2.2"] %}
-                                                <tr>  
+                                    <div class="alert alert-info" role="alert">
+                                        Ensure timely procurement from the identified suppliers, especially for high-demand products like PD1002 and PD1004, to maintain optimal inventory levels.
+
+                                        For suppliers handling multiple products (e.g., S1003), combining orders could reduce logistics costs and improve efficiency.
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                {% if all_tables_data["2.2.2"] %}
+                                                <tr>
                                                     {% for column in all_tables_data["2.2.2"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                                    <th>{{ column }}</th>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["2.2.2"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {% for row in all_tables_data["2.2.2"]['data'] %}
+                                                <tr>
+                                                    {% for item in row %}
+                                                    <td>{{ item }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            {% endif %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
@@ -258,7 +310,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6"> -->
                             <div class="card mb-3">
                                 <div class="card-header">
                                     <!-- Pricing Strategy Analysis -->
@@ -266,34 +318,42 @@
                                     <a href="#">View all</a>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            {% if all_tables_data["2.3.1"] %}
-                                                <tr>  
+                                    <div class="alert alert-info" role="alert">
+                                        By adjusting prices based on the recommendations, you can better align product pricing with market trends, competitor pricing, and demand to maximize sales and profitability.
+
+                                        PD1004 may benefit from a targeted price reduction campaign to attract more customers, while PD1003 could explore premium pricing strategies given its higher recommended price.
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                {% if all_tables_data["2.3.1"] %}
+                                                <tr>
                                                     {% for column in all_tables_data["2.3.1"]['columns'] %}
-                                                        <th>{{ column }}</th>  
+                                                    <th>{{ column }}</th>
                                                     {% endfor %}
-                                                </tr>  
-                                            
-                                        </thead>
-                                        <tbody>
-                                            {% for row in all_tables_data["2.3.1"]['data'] %}
-                                            <tr>
-                                            {% for item in row %}
-                                                <td>{{ item }}</td>
-                                            {% endfor %}
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                        {% endif %}
-                                    </table>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {% for row in all_tables_data["2.3.1"]['data'] %}
+                                                <tr>
+                                                    {% for item in row %}
+                                                    <td>{{ item }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            {% endif %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

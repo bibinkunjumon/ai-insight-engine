@@ -7,6 +7,7 @@ def read_csv(file_path):
         # Read the CSV file
         data = pd.read_csv(file_path)
         table_columns = data.columns.tolist()
+        # table_data = data.values.tolist()  # Convert to list of lists
         table_data = data.head().values.tolist()  # Convert to list of lists
         return table_columns, table_data
 
@@ -31,7 +32,7 @@ def process_tables():
     # Loop through each CSV file and read it
     for csv_file in csv_files:
         file_path = os.path.join(data_directory, csv_file)  # Construct full file path
-        columns, data = read_csv(file_path)  # Pass file path to the function
+        columns, data = read_csv(file_path)  
         
         # Store the columns and data in the dictionary
         if columns is not None and data is not None:
@@ -41,7 +42,7 @@ def process_tables():
                 'data': data
             }
     return all_data
-    # Example: Accessing stored data for a specific file
+
     # for file_key, content in all_data.items():
     #     print(f"\nFile: {file_key}")
     #     print("Columns:", content['columns'])

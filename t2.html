@@ -1,0 +1,334 @@
+<html>
+<head>
+    <title>Inventory Optimization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            transform: scale(0.9); /* Adjust the scale as needed */
+            transform-origin: top left;
+        }
+        .sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            height: 100vh;
+            border-right: 1px solid #dee2e6;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px 0;
+            color: #000;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #e9ecef;
+        }
+        .content {
+            padding: 20px;
+            width: 100%;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .search-bar {
+            width: 300px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .analysis-summary {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-boxes fa-2x me-2"></i>
+                <span class="fs-4">Optimizer</span>
+            </div>
+            <a href="#">Inventory Optimization</a>
+            <a href="#">Settings</a>
+            <a href="#">Profile</a>
+        </div>
+        <div class="content flex-grow-1">
+            <div class="header">
+                <h1>Inventory Optimization</h1>
+                <input type="text" class="form-control search-bar" placeholder="Search for...">
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span>Stock Recommendations</span>
+                    <a href="#">View all</a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <span>High Demand Products</span>
+                                    <a href="#">View all</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="analysis-summary">
+                                        <p>These products have high demand and require increased stock levels to meet customer needs.</p>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product name</th>
+                                                    <th>Current stock</th>
+                                                    <th>Optimal stock qty</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>233</td>
+                                                    <td>120</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>6 <span class="badge bg-warning text-dark">Low</span></td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>8 <span class="badge bg-warning text-dark">Low</span></td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>250</td>
+                                                    <td>120</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <span>Low Demand Products</span>
+                                    <a href="#">View all</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="analysis-summary">
+                                        <p>These products have low demand and require decreased stock levels to avoid overstocking.</p>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product name</th>
+                                                    <th>Current stock</th>
+                                                    <th>Optimal stock qty</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>98</td>
+                                                    <td>50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>115</td>
+                                                    <td>30</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>267</td>
+                                                    <td>50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>113</td>
+                                                    <td>120</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span>Product Recommendations</span>
+                    <a href="#">View all</a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <span>Related products</span>
+                                    <a href="#">View all</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="analysis-summary">
+                                        <p>These products are often bought together and can be recommended as related products to increase sales.</p>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product name</th>
+                                                    <th>Freq bought together item 1</th>
+                                                    <th>Freq bought together item 2</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Product 1</td>
+                                                    <td>Product 5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Product 2</td>
+                                                    <td>Product 6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Product 3</td>
+                                                    <td>Product 7</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Product 4</td>
+                                                    <td>Product 8</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <span>Bundle offer products</span>
+                                    <a href="#">View all</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="analysis-summary">
+                                        <p>These products are recommended for bundle offers to provide better value to customers and increase sales.</p>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product name</th>
+                                                    <th>Related product</th>
+                                                    <th>Suggested offer price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Dummy product</td>
+                                                    <td>$24.49 <span class="text-muted"><s>$29.99</s></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Dummy product</td>
+                                                    <td>$13.00 <span class="text-muted"><s>$18.99</s></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Dummy product</td>
+                                                    <td>$16.00 <span class="text-muted"><s>$21.00</s></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dummy product</td>
+                                                    <td>Dummy product</td>
+                                                    <td>$45.00 <span class="text-muted"><s>$99.49</s></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span>Price Recommendations</span>
+                    <a href="#">View all</a>
+                </div>
+                <div class="card-body">
+                    <div class="analysis-summary">
+                        <p>These products have high search volume but low purchase rates. Consider offering discounts to increase sales.</p>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product name</th>
+                                    <th>Current price</th>
+                                    <th>Suggested discount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dummy product</td>
+                                    <td>$15</td>
+                                    <td>10%</td>
+                                </tr>
+                                <tr>
+                                    <td>Dummy product</td>
+                                    <td>$29</td>
+                                    <td>50%</td>
+                                </tr>
+                                <tr>
+                                    <td>Dummy product</td>
+                                    <td>$10.99</td>
+                                    <td>70%</td>
+                                </tr>
+                                <tr>
+                                    <td>Dummy product</td>
+                                    <td>$25.49</td>
+                                    <td>25%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

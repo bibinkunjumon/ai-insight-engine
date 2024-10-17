@@ -27,5 +27,5 @@ def analytics_dashboard():
     global all_tables_data
     return render_template('sales_booster_features/sales_boost_page.html',all_tables_data=all_tables_data)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)

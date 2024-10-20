@@ -31,24 +31,27 @@ def dashboard():
 def analytics_dashboard():
     global headrow_tables_data
     return render_template('analytics_dashboard/analytic_page.html',all_tables_data=headrow_tables_data)
+@app.route('/inventory', endpoint='InventoryDashboard') # Inventory Dashboard  viewall
+def inventory_dashboard():
+    global headrow_tables_data
+    return render_template('inventory_optimization/inventory_page.html',all_tables_data=headrow_tables_data)
 
+@app.route('/salesboost', endpoint='SalesBoostDashboard') # SalesBoost Dashboard  viewall
+def salesboost_dashboard():
+    global headrow_tables_data
+    return render_template('sales_booster_features/sales_boost_page.html',all_tables_data=headrow_tables_data)
+
+
+
+#Sectionwise detailed analytics
 @app.route('/analytics/section/<section_number>', endpoint='analytics_section') # Analytics Dashboard viewall
 def analytics_section(section_number):
     global all_tables_data
     # draw_bargraph(all_tables_data,"1.1.1","Product Names","Total Searches",'Bar Graph - Total Searches per Product',f'{section_number}fulldata')
     image_path = f'static/images/{section_number}fulldata.png'
     image_exists = os.path.exists(image_path)
-    return render_template(f'analytics_dashboard/ad_section/{section_number}.html',all_tables_data = all_tables_data, image_exists=image_exists)
+    return render_template(f'detailed_sections/{section_number}.html',all_tables_data = all_tables_data, image_exists=image_exists)
 
-@app.route('/inventory', endpoint='InventoryDashboard') # Inventory Dashboard  viewall
-def inventory_dashboard():
-    global all_tables_data
-    return render_template('inventory_optimization/inventory_page.html',all_tables_data=all_tables_data)
-
-@app.route('/salesboost', endpoint='SalesBoostDashboard') # SalesBoost Dashboard  viewall
-def salesboost_dashboard():
-    global all_tables_data
-    return render_template('sales_booster_features/sales_boost_page.html',all_tables_data=all_tables_data)
 
 if __name__ == '__main__':
     app.run(debug=True)

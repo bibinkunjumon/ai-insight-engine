@@ -1,14 +1,17 @@
 import os
 import pandas as pd
 
-def read_csv(file_path):
+def read_csv(file_path,data_length):
     """Reads a CSV file and returns its columns and the first few rows of data."""
     try:
         # Read the CSV file
         data = pd.read_csv(file_path)
         table_columns = data.columns.tolist()
-        # table_data = data.values.tolist()  # Convert to list of lists
-        table_data = data.head().values.tolist()  # Convert to list of lists
+        if data_length == "fulldata":
+            table_data = data.values.tolist()  # Convert to list of lists
+        elif data_length == "headrow":
+            table_data = data.head().values.tolist()  # Convert to list of lists
+
         return table_columns, table_data
 
     except FileNotFoundError:
@@ -21,18 +24,15 @@ def read_csv(file_path):
         print(f"An error occurred: {e}")
         return None, None
 
-def process_tables():
-    # Directory containing the CSV files
+def process_tables(data_length):
     data_directory = "data"
-    # Dictionary to store data from all CSV files
     all_data = {}
-    # List all CSV files in the directory
     csv_files = [f for f in os.listdir(data_directory) if f.endswith('.csv')]
 
     # Loop through each CSV file and read it
     for csv_file in csv_files:
         file_path = os.path.join(data_directory, csv_file)  # Construct full file path
-        columns, data = read_csv(file_path)  
+        columns, data = read_csv(file_path,data_length)  
         
         # Store the columns and data in the dictionary
         if columns is not None and data is not None:

@@ -91,6 +91,24 @@
             color: #273022;
             /* Change the text color to blue */
         }
+
+        /* Progressbar */
+        #progress-container {
+    text-align: center;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+        #progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+
+        #progress-background {
+            z-index: -1;
+        }
     </style>
 </head>
 
@@ -108,8 +126,21 @@
                 Optimization</a>
             <a href="{{ url_for('SalesBoostDashboard') }}"> <i class="fas fa-boxes fa-1x me-1"></i>Sales Booster
                 Features</a>
+            <a href="#" id="update-button"> <i class="fas fa-boxes fa-1x me-1"></i>Update Tables & Graphs</a>
         </div>
         <div class="content flex-grow-1">
+            <!--  -->
+            <!-- Progress bar container -->
+            <div id="progress-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; z-index: 1001;">
+                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" style="width: 0%;">Updating Data</div>
+                </div>
+            </div>
+            <!-- <div id="message" style="display: none;"></div> -->
+            <div class="alert alert-success mx-auto p-2 mt-4" role="alert" id="message" style="display: none;">
+             </div>
+
+            <!--  -->
             <div class="header">
                 <h1>Inventory Optimizer and Sales Booster</h1>
                 <input type="text" class="form-control search-bar" placeholder="Search for...">
@@ -385,6 +416,48 @@
 
         </div>
     </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#update-button').click(function (event) {
+                event.preventDefault(); // Prevent the default anchor click behavior
+                $('#progress-container').show(); // Show the progress bar container
+                $('#message').hide(); // Hide any previous messages
+                $('#progress-bar').css('width', '0%'); // Reset progress bar
+
+                // Simulate progress
+                let progress = 0;
+                const interval = setInterval(function () {
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                    } else {
+                        progress += 10; // Increment progress
+                        $('#progress-bar').css('width', progress + '%');
+                    }
+                }, 1000); // Update every second
+
+                // Make AJAX request to update tables and graphs
+                $.ajax({
+                    url: '/update_tables_graphs',
+                    type: 'POST',
+                    success: function (response) {
+                        clearInterval(interval); // Stop the progress simulation
+                        $('#progress-bar').css('width', '100%'); // Complete the progress bar
+                        $('#message').text(response.message).show(); // Show success message
+                        setTimeout(function () {
+                            window.location.href = '/'; // Redirect to home page after 3 seconds
+                        }, 3000);
+                    },
+                    error: function () {
+                        clearInterval(interval); // Stop the progress simulation
+                        $('#message').text('An error occurred while updating.').show(); // Show error message
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

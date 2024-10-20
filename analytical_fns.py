@@ -3,7 +3,7 @@ matplotlib.use('Agg')  # Use Agg backend for non-GUI environments
 import matplotlib.pyplot as plt
 import numpy as np
 
-def draw_bargraph(all_tables_data,analysis_code,xlabel,ylabel,graphlabel):
+def draw_bargraph(all_tables_data,analysis_code,xlabel,ylabel,graphlabel,image_filename):
     # Extract column names and data
     # columns = all_tables_data[analysis_code]['columns']
     data_rows = all_tables_data[analysis_code]['data']
@@ -41,6 +41,6 @@ def draw_bargraph(all_tables_data,analysis_code,xlabel,ylabel,graphlabel):
     # Save the graph as an image
     plt.tight_layout()
     plt.subplots_adjust(top=0.9, bottom=0.2)  # Adjust margins
-    plt.savefig(f'static/images/{analysis_code}.png')  # Save the image
-    print(f"{analysis_code} - Image Writed")
+    plt.savefig(f'static/images/{image_filename}.png')  # Save the image
+    print(f"{image_filename} - Image Writed")
     plt.close()  # Close the plot to free up memory

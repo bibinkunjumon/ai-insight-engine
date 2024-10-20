@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Analytics Dashboard</title>
+    <title>Stock Recommendations</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -108,28 +108,28 @@
         </div>
         <div class="content flex-grow-1">
             <div class="header">
-                <h1>Analytics Dashboard</h1>
+                <h1>Stock Recommendations</h1>
                 <input type="text" class="form-control search-bar" placeholder="Search for...">
             </div>
             <div class="card">
                 <div class="card-header">
-                    <span>Analysis of Total Searches per Product (1.4.2)</span>
+                    <span>High-Demand Products (2.1.1)</span>
                 </div>
                 <div class="card-body">
                     <div class="scrollable-table" style="width: 100%; overflow-x: auto;">
 
-                        {% if all_tables_data["1.4.2"] %}
+                        {% if all_tables_data["2.1.1"] %}
                         <table class="table">
                             <thead>
 
                                 <tr>
-                                    {% for column in all_tables_data["1.4.2"]['columns'] %}
+                                    {% for column in all_tables_data["2.1.1"]['columns'] %}
                                     <th>{{ column }}</th>
                                     {% endfor %}
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for row in all_tables_data["1.4.2"]['data'] %}
+                                {% for row in all_tables_data["2.1.1"]['data'] %}
                                 <tr>
                                     {% for item in row %}
                                     <td>{{ item }}</td>
@@ -151,7 +151,7 @@
                         </p>
                         <div class="graph">
                             {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/1.4.2.png') }}"
+                            <img src="{{ url_for('static', filename='images/2.1.1.png') }}"
                                 alt="Graph representing total searches per product" style="width: 100%; height: auto;">
                             {% endif %}
                         </div>

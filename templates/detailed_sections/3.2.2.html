@@ -108,28 +108,28 @@
         </div>
         <div class="content flex-grow-1">
             <div class="header">
-                <h1>Analytics Dashboard</h1>
+                <h1>Cross-Selling and Upselling</h1>
                 <input type="text" class="form-control search-bar" placeholder="Search for...">
             </div>
             <div class="card">
                 <div class="card-header">
-                    <span>Analysis of Total Searches per Product (1.4.2)</span>
+                    <span>Bundle Offers (3.2.2)</span>
                 </div>
                 <div class="card-body">
                     <div class="scrollable-table" style="width: 100%; overflow-x: auto;">
 
-                        {% if all_tables_data["1.4.2"] %}
+                        {% if all_tables_data["3.2.2"] %}
                         <table class="table">
                             <thead>
 
                                 <tr>
-                                    {% for column in all_tables_data["1.4.2"]['columns'] %}
+                                    {% for column in all_tables_data["3.2.2"]['columns'] %}
                                     <th>{{ column }}</th>
                                     {% endfor %}
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for row in all_tables_data["1.4.2"]['data'] %}
+                                {% for row in all_tables_data["3.2.2"]['data'] %}
                                 <tr>
                                     {% for item in row %}
                                     <td>{{ item }}</td>
@@ -151,7 +151,7 @@
                         </p>
                         <div class="graph">
                             {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/1.4.2.png') }}"
+                            <img src="{{ url_for('static', filename='images/3.2.2.png') }}"
                                 alt="Graph representing total searches per product" style="width: 100%; height: auto;">
                             {% endif %}
                         </div>

@@ -17,3 +17,11 @@ def generate_tables_graphs():
 
     data_refresh = False
     return all_tables_data,headrow_tables_data,data_refresh
+
+# Sample topics
+topics = {
+    "1.1.1": "Product Search Analytics",
+    "1.1.2": "Cart Abandonment Analytics",
+    "1.1.3": "Purchase Analytics",
+    "1.2.1": "Customer Behavior Analytics"
+}

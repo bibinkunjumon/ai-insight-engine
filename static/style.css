@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background */
+}
+
+.container {
+    display: flex;
+    background-color: #fff; /* White background for the chat container */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.history-panel {
+    width: 30%;
+    padding: 20px; /* Increased padding */
+    border-right: 1px solid #ccc;
+}
+
+.chat-panel {
+    width: 70%;
+    padding: 20px; /* Increased padding */
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#chat-box {
+    background-color: #e9ecef; /* Light gray background */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    width: 75%; /* Adjust width */
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Blue background */
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack panels vertically */
+    }
+    .history-panel, .chat-panel {
+        width: 100%; /* Full width on small screens */
+    }
+}

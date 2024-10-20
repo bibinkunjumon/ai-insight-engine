@@ -3,7 +3,7 @@ import pandas as pd
 import os
 # from generate_data import process_tables
 # from analytical_fns import draw_bargraph
-from utils import generate_tables_graphs
+from utils import generate_tables_graphs,topics
 
 app = Flask(__name__)
 
@@ -51,6 +51,29 @@ def analytics_section(section_number):
     image_path = f'static/images/{section_number}fulldata.png'
     image_exists = os.path.exists(image_path)
     return render_template(f'detailed_sections/{section_number}.html',all_tables_data = all_tables_data, image_exists=image_exists)
+
+
+
+
+@app.route('/chatpage', endpoint='ChatPage')
+def index():
+    return render_template('chat/chat3.html', topics=topics)
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_message = request.json.get('message')
+    if not user_message:
+        return jsonify({"response": "Please enter a message."})
+    print(user_message)
+    # Here you would typically process the message and generate a response
+    # For simplicity, we'll echo the message back.
+    response_message = f"You said: {user_message}"
+    return jsonify({"response": response_message})
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 
 if __name__ == '__main__':

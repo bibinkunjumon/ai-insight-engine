@@ -142,30 +142,49 @@
                     </div>
                     <div class="analysis">
                         <h5>Analysis</h5>
-                        <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
-                        </p>
+
                         <div class="graph">
                             {% if image_exists %}
                             <img src="{{ url_for('static', filename='images/2.1.2.png') }}"
                                 alt="Graph representing total searches per product" style="width: 100%; height: auto;">
                             {% endif %}
                         </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
-                        </p>
-                        <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
-                        </p>
+                        <p>Detailed Stock Level Analysis</p>
+
+                        <p><strong>Analysis Aspects:</strong></p>
+                        <p>• Trends in Stock Levels: Analyze changes in the current stock levels over time for different
+                            products.</p>
+                        <p>• Optimal Stock Level Analysis: Compare the current stock levels with the optimal stock
+                            quantities to identify overstocked or understocked situations.</p>
+                        <p>• Stock Depletion Rates: Determine how quickly stock levels are being depleted for each
+                            product.</p>
+                        <p>• Potential Inventory Issues: Identify products with consistently high or low stock levels
+                            compared to their optimal values.</p>
+                            <div class="graph">
+                                
+                                <img src="{{ url_for('static', filename='images/2.1.2-1.png') }}"
+                                    alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+                              
+                            </div>    
+                            <div class="graph">
+                                
+                                <img src="{{ url_for('static', filename='images/2.1.2-2.png') }}"
+                                    alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+                              
+                            </div>    
+                        <p><strong>Key Findings:</strong></p>
+                        <p>• Overstocked Products:</p>
+                        <p> - All ten products showed periods of being overstocked, with the following details:</p>
+                        <p> - Products PD1001, PD1005, and PD1010 were overstocked for all 31 days in the dataset.</p>
+                        <p> - Products PD1002, PD1003, PD1004, PD1007, PD1008, and PD1009 also experienced significant
+                            overstocking.</p>
+                        <p> - Product PD1006 had the fewest overstocked days.</p>
+                        <p>• Understocked Products: There were no instances of understocking identified in the dataset,
+                            indicating that the current stock levels were consistently equal to or higher than the
+                            optimal stock quantities.</p>
+                        <p>• Stock Trends: The daily changes in stock levels for each product varied, providing insights
+                            into how stock levels were managed over time. This trend information can help identify which
+                            products may need adjustments in replenishment strategies.</p>
 
                     </div>
                 </div>

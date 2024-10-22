@@ -1,0 +1,51 @@
+Customer ID,Product Name,Recommended Products,Purchases,Searches
+C1001,Face Serum,"['Power Bank', 'Wireless Earbuds']",13,17
+C1001,Gaming Mouse,"['Yoga Mat', 'Running Shoes']",16,42
+C1001,Power Bank,"['Face Serum', 'Hydro Bottle']",7,35
+C1001,Scented Candles,"['Gaming Mouse', 'Cotton Sheets']",24,25
+C1001,Wireless Earbuds,"['Face Serum', 'Comfort Pillow']",10,10
+C1001,Yoga Mat,[],24,47
+C1001,Hydro Bottle,[],2,7
+C1001,Running Shoes,[],0,0
+C1001,Cotton Sheets,[],23,40
+C1001,Comfort Pillow,[],30,32
+C1002,Face Serum,"['Power Bank', 'Wireless Earbuds']",24,45
+C1002,Gaming Mouse,"['Yoga Mat', 'Running Shoes']",26,30
+C1002,Power Bank,"['Face Serum', 'Hydro Bottle']",20,26
+C1002,Scented Candles,"['Gaming Mouse', 'Cotton Sheets']",20,20
+C1002,Wireless Earbuds,"['Face Serum', 'Comfort Pillow']",11,49
+C1002,Yoga Mat,[],29,48
+C1002,Hydro Bottle,[],15,18
+C1002,Running Shoes,[],0,3
+C1002,Cotton Sheets,[],17,46
+C1002,Comfort Pillow,[],32,32
+C1003,Face Serum,"['Power Bank', 'Wireless Earbuds']",25,48
+C1003,Gaming Mouse,"['Yoga Mat', 'Running Shoes']",1,1
+C1003,Power Bank,"['Face Serum', 'Hydro Bottle']",1,13
+C1003,Scented Candles,"['Gaming Mouse', 'Cotton Sheets']",3,49
+C1003,Wireless Earbuds,"['Face Serum', 'Comfort Pillow']",8,13
+C1003,Yoga Mat,[],33,40
+C1003,Hydro Bottle,[],0,7
+C1003,Running Shoes,[],0,32
+C1003,Cotton Sheets,[],3,9
+C1003,Comfort Pillow,[],20,21
+C1004,Face Serum,"['Power Bank', 'Wireless Earbuds']",22,30
+C1004,Gaming Mouse,"['Yoga Mat', 'Running Shoes']",28,32
+C1004,Power Bank,"['Face Serum', 'Hydro Bottle']",25,41
+C1004,Scented Candles,"['Gaming Mouse', 'Cotton Sheets']",3,19
+C1004,Wireless Earbuds,"['Face Serum', 'Comfort Pillow']",15,24
+C1004,Yoga Mat,[],10,15
+C1004,Hydro Bottle,[],16,25
+C1004,Running Shoes,[],5,5
+C1004,Cotton Sheets,[],9,45
+C1004,Comfort Pillow,[],2,21
+C1005,Face Serum,"['Power Bank', 'Wireless Earbuds']",1,35
+C1005,Gaming Mouse,"['Yoga Mat', 'Running Shoes']",10,12
+C1005,Power Bank,"['Face Serum', 'Hydro Bottle']",1,36
+C1005,Scented Candles,"['Gaming Mouse', 'Cotton Sheets']",0,38
+C1005,Wireless Earbuds,"['Face Serum', 'Comfort Pillow']",5,22
+C1005,Yoga Mat,[],3,8
+C1005,Hydro Bottle,[],10,33
+C1005,Running Shoes,[],35,42
+C1005,Cotton Sheets,[],3,46
+C1005,Comfort Pillow,[],37,50

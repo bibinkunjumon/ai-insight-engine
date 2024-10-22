@@ -1,0 +1,11 @@
+Product Name,Recommended Products
+Face Serum,"['Power Bank', 'Wireless Earbuds']"
+Gaming Mouse,"['Yoga Mat', 'Running Shoes']"
+Power Bank,"['Face Serum', 'Hydro Bottle']"
+Scented Candles,"['Gaming Mouse', 'Wireless Earbuds']"
+Wireless Earbuds,"['Cotton Sheets', 'Comfort Pillow']"
+Yoga Mat,['Running Shoes']
+Hydro Bottle,"['Power Bank','Face Serum']"
+Running Shoes,"['Gaming Mouse','Yoga Mat']"
+Cotton Sheets,"['Wireless Earbuds','Comfort Pillow']"
+Comfort Pillow,"['Wireless Earbuds','Cotton Sheets']"

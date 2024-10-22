@@ -25,7 +25,8 @@ def read_csv(file_path,data_length):
         return None, None
 
 def process_tables(data_length):
-    data_directory = "data"
+    # data_directory = "data"
+    data_directory = "data_processed"
     all_data = {}
     csv_files = [f for f in os.listdir(data_directory) if f.endswith('.csv')]
 

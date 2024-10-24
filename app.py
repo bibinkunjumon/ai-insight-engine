@@ -13,8 +13,11 @@ all_tables_data = {}
 headrow_tables_data = {}
 data_refresh = True
 # Declare chatapp as a global variable
-chatapp = None
-config = None
+# chatapp = None
+thread_id = "as123"
+chatapp, config = initialise_variables(thread_id)
+# chatapp = None
+# config = None
 
 from time import sleep
 @app.route('/update_tables_graphs', methods=['POST'])
@@ -96,7 +99,7 @@ def chat():
 
 
 if __name__ == '__main__':
-    thread_id = "as123"
-    # Initialize the model and workflow
-    chatapp, config = initialise_variables(thread_id)
+    # thread_id = "as123"
+    # # Initialize the model and workflow
+    # chatapp, config = initialise_variables(thread_id)
     app.run(debug=True)

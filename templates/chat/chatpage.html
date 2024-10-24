@@ -71,14 +71,21 @@
             <ul id="history-list" class="list-group"></ul>
         </div>
         <div class="chat-panel">
-            <h2>AI Insight Engine</h2>
+            <div class="row">
+                <div class="col-10">
+                <h2>AI Insight Engine</h2>  </div>
+                <div class="col-2">
+                    <button id="new-chat" class="btn btn-info mb-3">New Chat</button>
+                </div> 
+            </div>
+             
+
             <select id="topic-select" class="form-select mb-3">
                 <option value="">Select a topic</option>
                 {% for key, value in topics.items() %}
                     <option value="{{ key }}">{{ value }}</option>
                 {% endfor %}
             </select>
-            <button id="new-chat" class="btn btn-secondary mb-3">New Chat</button>
             <div id="chat-box"></div>
             <div class="input-group">
                 <input type="text" id="user-input" placeholder="Type a message..." aria-label="User  input">
@@ -97,7 +104,8 @@
         sendButton.addEventListener('click', async () => {
             const message = userInput.value;
             if (!message) return;
-
+            chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+            userInput.value = '';
             const response = await fetch('/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -106,19 +114,17 @@
             const data = await response.json();
 
             // Update chat box and history
-            chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+            // chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
             chatBox.innerHTML += `<p><strong>Insight:</strong> ${data.response}</p>`;
-            historyList.innerHTML += `<li class="list-group-item"><strong>${message}</strong> - Insight: ${data.response}</li>`;
+            historyList.innerHTML += `<li class="list-group-item"><strong>You : </strong> ${message}<br> <strong>AI Insight: </strong>${data.response}</li>`;
             
-            // Clear input
-            userInput.value = '';
             chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
         });
 
         document.getElementById('new-chat').addEventListener('click', () => {
             topicSelect.value = '';
             chatBox.innerHTML = '';
-            historyList.innerHTML = '';
+            // historyList.innerHTML = '';
         });
     </script>
 </body>

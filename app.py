@@ -4,13 +4,17 @@ import os
 # from generate_data import process_tables
 # from analytical_fns import draw_bargraph
 from utils import generate_tables_graphs,topics
+from langchain_core.messages import HumanMessage
+from chat import initialise_variables
 
 app = Flask(__name__)
 
 all_tables_data = {}
 headrow_tables_data = {}
 data_refresh = True
-
+# Declare chatapp as a global variable
+chatapp = None
+config = None
 
 from time import sleep
 @app.route('/update_tables_graphs', methods=['POST'])
@@ -57,24 +61,41 @@ def analytics_section(section_number):
 
 @app.route('/chatpage', endpoint='ChatPage')
 def index():
-    return render_template('chat/chat3.html', topics=topics)
+    return render_template('chat/chatpage.html', topics=topics)
 
 @app.route('/chat', methods=['POST'])
 def chat():
+    global chatapp  # Declare chatapp as global to modify it
     user_message = request.json.get('message')
     if not user_message:
         return jsonify({"response": "Please enter a message."})
-    print(user_message)
-    # Here you would typically process the message and generate a response
-    # For simplicity, we'll echo the message back.
-    response_message = f"You said: {user_message}"
+
+    # Process the user's message
+    input_messages = [HumanMessage(user_message)]
+    output = chatapp.invoke({"messages": input_messages}, config)
+
+    # Extract the response message
+    response_message = output["messages"][-1].content
+
     return jsonify({"response": response_message})
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+# @app.route('/chat', methods=['POST'])
+# def chat():
+#     user_message = request.json.get('message')
+#     if not user_message:
+#         return jsonify({"response": "Please enter a message."})
+#     print(user_message)
+#     # Here you would typically process the message and generate a response
+#     # For simplicity, we'll echo the message back.
+#     response_message = f"You said: {user_message}"
+#     return jsonify({"response": response_message})
 
 
 
 if __name__ == '__main__':
+    thread_id = "as123"
+    # Initialize the model and workflow
+    chatapp, config = initialise_variables(thread_id)
     app.run(debug=True)

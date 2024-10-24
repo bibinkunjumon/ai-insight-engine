@@ -107,7 +107,7 @@ def chat():
 
     input_messages = [HumanMessage(user_message)]
     try:
-        output = chatapp.invoke({"messages": input_messages}, config, timeout=20)
+        output = chatapp.invoke({"messages": input_messages}, config )
     except requests.exceptions.Timeout:
         return jsonify({"response": "The request timed out. Please try again later."})
     except Exception as e:

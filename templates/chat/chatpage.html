@@ -73,6 +73,18 @@
         #send-button:hover {
             background-color: #0056b3;
         }
+
+        .history-panel {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            /* adjust the height as needed */
+        }
+
+        #history-list {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
     </style>
 </head>
 
@@ -127,8 +139,8 @@
         const topicSelect = document.getElementById('topic-select');
 
         function updateSendButtonState() {
-    sendButton.disabled = !topicSelect.value; // Disable if no value is selected
-}
+            sendButton.disabled = !topicSelect.value; // Disable if no value is selected
+        }
         sendButton.addEventListener('click', async () => {
             sendButton.disabled = true;
             clearButton.disabled = true;
@@ -146,7 +158,7 @@
             const response = await fetch('/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message,topic })
+                body: JSON.stringify({ message, topic })
             });
             const data = await response.json();
 
@@ -164,7 +176,7 @@
         document.getElementById('new-chat').addEventListener('click', () => {
             topicSelect.value = '';
             chatBox.innerHTML = '';
-            userInput.value=''
+            userInput.value = ''
             // historyList.innerHTML = '';
             updateSendButtonState();
         });

@@ -126,10 +126,14 @@
         const newchatButton = document.getElementById('new-chat');
         const topicSelect = document.getElementById('topic-select');
 
+        function updateSendButtonState() {
+    sendButton.disabled = !topicSelect.value; // Disable if no value is selected
+}
         sendButton.addEventListener('click', async () => {
             sendButton.disabled = true;
             clearButton.disabled = true;
             newchatButton.disabled = true;
+            const topic = topicSelect.value;
             const message = userInput.value;
             if (!message) {
                 sendButton.disabled = false;
@@ -142,7 +146,7 @@
             const response = await fetch('/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ message,topic })
             });
             const data = await response.json();
 
@@ -160,7 +164,9 @@
         document.getElementById('new-chat').addEventListener('click', () => {
             topicSelect.value = '';
             chatBox.innerHTML = '';
+            userInput.value=''
             // historyList.innerHTML = '';
+            updateSendButtonState();
         });
         document.getElementById('clear').addEventListener('click', () => {
             topicSelect.value = '';
@@ -173,7 +179,9 @@
             const selectedText = topicSelect.options[topicSelect.selectedIndex].text; // Get the text of the selected option
             chatBox.innerHTML = selectedText;        // Set the chatBox to the selected text
             historyList.innerHTML += `<li>${selectedText}</li>`; // Add the selected text to historyList
+            updateSendButtonState();
         });
+        updateSendButtonState();
     </script>
 </body>
 

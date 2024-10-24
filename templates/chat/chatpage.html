@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,34 @@
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
         }
+
         .container {
             display: flex;
             height: 100vh;
         }
+
         .history-panel {
             width: 300px;
             background-color: #f1f3f4;
             padding: 20px;
             border-right: 1px solid #ddd;
         }
+
         .history-panel h2 {
             margin-top: 0;
         }
+
         .chat-panel {
             flex: 1;
             padding: 20px;
             display: flex;
             flex-direction: column;
         }
+
         .chat-panel h2 {
             margin-top: 0;
         }
+
         #chat-box {
             flex: 1;
             background-color: #e9f5e9;
@@ -41,6 +48,7 @@
             overflow-y: auto;
             margin-bottom: 10px;
         }
+
         #user-input {
             border: none;
             padding: 10px;
@@ -49,9 +57,11 @@
             margin-right: 10px;
             flex: 1;
         }
+
         #user-input:focus {
             outline: none;
         }
+
         #send-button {
             background-color: #0d6efd;
             color: white;
@@ -59,31 +69,44 @@
             border-radius: 20px;
             padding: 10px 20px;
         }
+
         #send-button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="history-panel">
-            <h2>Chat History</h2>
+            <div class="row">
+                <div class="col">
+                    <h5>Chat History</h5>
+                </div>
+                <div class="col">
+                    <button id="clear" class="btn btn-secondary">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
             <ul id="history-list" class="list-group"></ul>
         </div>
         <div class="chat-panel">
             <div class="row">
                 <div class="col-10">
-                <h2>AI Insight Engine</h2>  </div>
+                    <h2>AI Insight Engine</h2>
+                </div>
                 <div class="col-2">
                     <button id="new-chat" class="btn btn-info mb-3">New Chat</button>
-                </div> 
+                </div>
             </div>
-             
+
 
             <select id="topic-select" class="form-select mb-3">
-                <option value="">Select a topic</option>
+                <option value="" disabled selected>Select a topic</option>
                 {% for key, value in topics.items() %}
-                    <option value="{{ key }}">{{ value }}</option>
+                <option value="{{ key }}">{{ value }}</option>
                 {% endfor %}
             </select>
             <div id="chat-box"></div>
@@ -99,11 +122,21 @@
         const historyList = document.getElementById('history-list');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
+        const clearButton = document.getElementById('clear');
+        const newchatButton = document.getElementById('new-chat');
         const topicSelect = document.getElementById('topic-select');
 
         sendButton.addEventListener('click', async () => {
+            sendButton.disabled = true;
+            clearButton.disabled = true;
+            newchatButton.disabled = true;
             const message = userInput.value;
-            if (!message) return;
+            if (!message) {
+                sendButton.disabled = false;
+                clearButton.disabled = false;
+                newchatButton.disabled = false;
+                return;
+            }
             chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
             userInput.value = '';
             const response = await fetch('/chat', {
@@ -117,8 +150,11 @@
             // chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
             chatBox.innerHTML += `<p><strong>Insight:</strong> ${data.response}</p>`;
             historyList.innerHTML += `<li class="list-group-item"><strong>You : </strong> ${message}<br> <strong>AI Insight: </strong>${data.response}</li>`;
-            
+
             chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            sendButton.disabled = false;
+            clearButton.disabled = false;
+            newchatButton.disabled = false;
         });
 
         document.getElementById('new-chat').addEventListener('click', () => {
@@ -126,6 +162,19 @@
             chatBox.innerHTML = '';
             // historyList.innerHTML = '';
         });
+        document.getElementById('clear').addEventListener('click', () => {
+            topicSelect.value = '';
+            chatBox.innerHTML = '';
+            historyList.innerHTML = '';
+        });
+
+
+        topicSelect.addEventListener('change', () => {
+            const selectedText = topicSelect.options[topicSelect.selectedIndex].text; // Get the text of the selected option
+            chatBox.innerHTML = selectedText;        // Set the chatBox to the selected text
+            historyList.innerHTML += `<li>${selectedText}</li>`; // Add the selected text to historyList
+        });
     </script>
 </body>
+
 </html>

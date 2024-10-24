@@ -62,9 +62,10 @@ def analytics_section(section_number):
 @app.route('/chatpage', endpoint='ChatPage')
 def index():
     return render_template('chat/chatpage.html', topics=topics)
-
+from time import sleep
 @app.route('/chat', methods=['POST'])
 def chat():
+    sleep(5)
     global chatapp  # Declare chatapp as global to modify it
     user_message = request.json.get('message')
     if not user_message:

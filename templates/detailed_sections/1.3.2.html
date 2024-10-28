@@ -143,30 +143,71 @@
                     <div class="analysis">
                         <h5>Analysis</h5>
                         <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
-                        </p>
-                        <div class="graph">
-                            {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/1.3.2.png') }}"
-                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                            {% endif %}
-                        </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
+                            The search-to-purchase ratio provides valuable insights into customer behavior and product
+                            performance. A higher ratio indicates that customers are searching for a product more
+                            frequently relative to the number of purchases, suggesting potential barriers to conversion.
                         </p>
                         <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
+                            Analyzing the data:
+                        <ul>
+                            <li><strong>Gaming Mouse:</strong> A ratio of <strong>1.87</strong> indicates that for every
+                                purchase, customers are conducting nearly two searches. This suggests a strong interest
+                                but may also imply concerns that lead them to explore alternatives before buying.</li>
+                            <li><strong>Cotton Sheets:</strong> Also with a ratio of <strong>1.87</strong>, this
+                                reflects similar customer behavior to the Gaming Mouse, indicating a need for better
+                                product positioning or value proposition to enhance conversion.</li>
+                            <li><strong>Running Shoes:</strong> With a ratio of <strong>1.80</strong>, the trend of
+                                searching more than purchasing continues, highlighting a competitive landscape or
+                                customer indecision.</li>
+                            <li><strong>Scented Candles:</strong> A ratio of <strong>1.58</strong> suggests a moderate
+                                level of interest, but customers may require additional information or incentives to
+                                make a purchase.</li>
+                            <li><strong>Yoga Mat:</strong> A ratio of <strong>1.57</strong> indicates that customers are
+                                also looking at other options, suggesting potential areas for improvement in product
+                                appeal or marketing.</li>
+                            <li><strong>Hydro Bottle:</strong> With the lowest ratio of <strong>1.44</strong>, this may
+                                indicate a stronger conversion rate relative to searches, suggesting that the product is
+                                performing better in terms of customer confidence and satisfaction.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            Overall, products with higher search-to-purchase ratios may benefit from enhanced marketing
+                            strategies, improved product descriptions, and customer engagement initiatives.
+                        </p>
+                        <p>
+                            <strong>Recommendations:</strong>
+                        <ul>
+                            <li><strong>Investigate Customer Concerns:</strong> Conduct surveys or gather feedback from
+                                customers who searched but did not purchase. Understanding their concerns can help
+                                address barriers to conversion.</li>
+                            <li><strong>Optimize Product Descriptions:</strong> Ensure that product pages highlight key
+                                features, benefits, and unique selling points clearly to facilitate informed
+                                decision-making.</li>
+                            <li><strong>Implement Retargeting Strategies:</strong> Use targeted marketing efforts to
+                                reach customers who have shown interest but have not converted, perhaps through email
+                                campaigns or personalized ads.</li>
+                            <li><strong>Consider Promotional Offers:</strong> Introduce discounts or limited-time offers
+                                to encourage customers to make a purchase, particularly for those with higher search
+                                ratios.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            By addressing the reasons behind high search-to-purchase ratios, you can improve conversion
+                            rates and enhance overall sales performance for these products.
                         </p>
 
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/1.3.2-1.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/1.3.2-2.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
                     </div>
                 </div>
             </div>

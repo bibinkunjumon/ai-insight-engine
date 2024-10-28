@@ -143,30 +143,80 @@
                     <div class="analysis">
                         <h5>Analysis</h5>
                         <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
-                        </p>
-                        <div class="graph">
-                            {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/1.3.1.png') }}"
-                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                            {% endif %}
-                        </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
+                            The search-to-purchase ratio is a crucial metric for understanding consumer behavior and
+                            product performance. A high ratio suggests that while customers are searching for a product,
+                            they may not be converting into purchases, indicating potential issues in the buying
+                            process.
                         </p>
                         <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
+                            Analyzing the data:
+                        <ul>
+                            <li><strong>Comfort Pillow:</strong> With an exceptionally high search-to-purchase ratio of
+                                <strong>12.6</strong>, this indicates that customers are searching for this product
+                                extensively but are likely not finding what they need to complete a purchase. This could
+                                point to issues such as pricing concerns, product availability, or a lack of compelling
+                                product information.</li>
+                            <li><strong>Wireless Earbuds:</strong> At a ratio of <strong>11.44</strong>, similar
+                                patterns emerge. High interest is evident, but the conversion rate is low, suggesting
+                                that further investigation into customer motivations and hesitations is needed.</li>
+                            <li><strong>Power Bank:</strong> With a search-to-purchase ratio of <strong>11.29</strong>,
+                                this product also shows a significant gap between search interest and actual purchases.
+                                It may require improved marketing or product enhancements to better meet customer
+                                expectations.</li>
+                            <li><strong>Face Serum:</strong> This product has a much lower ratio of <strong>2</strong>,
+                                indicating that the conversion process is smoother and customers are more likely to
+                                purchase after searching. This could be due to effective marketing or strong brand
+                                loyalty.</li>
+                            <li><strong>Gaming Mouse:</strong> With a ratio of <strong>1.87</strong>, this suggests a
+                                relatively balanced interest-to-purchase dynamic. While there is some room for
+                                improvement, it indicates a more favorable conversion compared to the previous items.
+                            </li>
+                            <li><strong>Cotton Sheets:</strong> Like the Gaming Mouse, this product also has a ratio of
+                                <strong>1.87</strong>, indicating a similar consumer behavior pattern and suggesting a
+                                more effective conversion process.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            In summary, products like the Comfort Pillow, Wireless Earbuds, and Power Bank show high
+                            search-to-purchase ratios, indicating potential challenges that need to be addressed to
+                            enhance conversion rates. In contrast, Face Serum, Gaming Mouse, and Cotton Sheets
+                            demonstrate relatively better performance.
+                        </p>
+                        <p>
+                            <strong>Recommendations:</strong>
+                        <ul>
+                            <li><strong>Conduct Customer Surveys:</strong> Engage with customers to understand their
+                                concerns and motivations for searching but not purchasing, especially for high-ratio
+                                products.</li>
+                            <li><strong>Optimize Product Listings:</strong> Improve product descriptions, images, and
+                                reviews for high-search items to provide customers with more compelling reasons to
+                                purchase.</li>
+                            <li><strong>Pricing Strategy Review:</strong> Evaluate the pricing of high-search products
+                                to ensure competitiveness in the market.</li>
+                            <li><strong>Marketing Campaigns:</strong> Implement targeted marketing strategies to address
+                                the specific concerns and highlight the benefits of high-search products.</li>
+                            <li><strong>Promotions and Discounts:</strong> Consider offering promotions or discounts on
+                                high-ratio items to encourage purchases and convert interest into sales.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            Addressing the high search-to-purchase ratios will be essential for improving sales
+                            performance and customer satisfaction for these products.
                         </p>
 
+
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/1.3.1-1.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/1.3.1-2.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
                     </div>
                 </div>
             </div>

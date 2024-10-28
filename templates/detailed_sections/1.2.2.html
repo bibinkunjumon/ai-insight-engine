@@ -143,29 +143,59 @@
                     <div class="analysis">
                         <h5>Analysis</h5>
                         <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
-                        </p>
-                        <div class="graph">
-                            {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/1.2.2.png') }}"
-                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                            {% endif %}
-                        </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
+                            The data presents an overview of customer interactions with various products, focusing on
+                            the time spent and the number of purchases made. Understanding these metrics can provide
+                            insights into customer engagement and potential barriers to conversion.
                         </p>
                         <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
+                            Analyzing the data:
+                        <ul>
+                            <li><strong>Gaming Mouse:</strong> Customer C1001 spent approximately <strong>46.84
+                                    minutes</strong> on this product but made <strong>0 purchases</strong>. This
+                                indicates significant interest or engagement, yet it results in no conversion. Potential
+                                reasons could include pricing issues, insufficient product information, or availability
+                                concerns.</li>
+                            <li><strong>Scented Candles:</strong> Customer C1002 spent around <strong>21.34
+                                    minutes</strong> with this product, also leading to <strong>0 purchases</strong>.
+                                While the time spent is lower compared to the Gaming Mouse, the lack of purchases
+                                suggests that customers may not find the product compelling enough to buy.</li>
+                            <li><strong>Running Shoes:</strong> Customer C1001 spent only <strong>7.08 minutes</strong>
+                                on this product, with <strong>0 purchases</strong>. The brief engagement time could
+                                indicate a lack of interest or that the customer did not find what they were looking for
+                                quickly.</li>
+                            <li><strong>Comfort Pillow:</strong> Customer C1003 engaged the most, spending approximately
+                                <strong>91.17 minutes</strong> on this product, yet made <strong>0 purchases</strong>.
+                                This lengthy interaction without conversion raises concerns about the product's appeal,
+                                pricing, or perhaps the customer’s ultimate decision-making process.</li>
+                        </ul>
                         </p>
+                        <p>
+                            Overall, all products show significant time spent by customers with no resulting purchases.
+                            This pattern highlights a potential disconnect between customer interest and the decision to
+                            buy.
+                        </p>
+                        <p>
+                            <strong>Recommendations:</strong>
+                        <ul>
+                            <li><strong>Analyze Customer Feedback:</strong> Gathering feedback from customers can help
+                                identify why they are spending time on products without purchasing. This could involve
+                                surveys or direct outreach.</li>
+                            <li><strong>Improve Product Descriptions:</strong> Ensure that product information is
+                                detailed, including features, benefits, and clear pricing, to assist customers in their
+                                decision-making.</li>
+                            <li><strong>Enhance Visuals:</strong> High-quality images and videos can increase engagement
+                                and provide customers with a better sense of the product.</li>
+                            <li><strong>Optimize the Purchase Process:</strong> Review the checkout process for any
+                                barriers that might discourage customers from completing their purchases.</li>
+                            <li><strong>Consider Targeted Promotions:</strong> Offering discounts or incentives for
+                                products with high engagement but low purchase rates might encourage conversions.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            Addressing the issues reflected in this data can help improve conversion rates and
+                            ultimately enhance customer satisfaction and sales performance.
+                        </p>
+
 
                     </div>
                 </div>

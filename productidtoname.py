@@ -14,19 +14,19 @@ product_mapping = {
 }
 
 # Step 2: Read the input CSV file
-input_filename = 'data/1.3.2.csv'
-output_filename = 'data_processed/1.3.2.csv'
+input_filename = 'data/2.1.2.csv'
+output_filename = 'data_processed/2.1.2.csv'
 
 with open(input_filename, 'r') as input_file, open(output_filename, 'w', newline='') as output_file:
     reader = csv.reader(input_file)
     writer = csv.writer(output_file)
 
     # Write the header
-    writer.writerow(["Product Name","Search To Purchase Ratio"])
+    writer.writerow(["Date","Product Name","Current Stock Level","Optimal Stock Quantity"])
     # Process each row in the input file
     next(reader)  # Skip the header
     for row in reader:
-        col1, col2= row
-        product_name = product_mapping.get(col1, col1)  # Fallback to product_id if not found
-        writer.writerow([product_name,col2])
+        col1, col2,col3,col4= row
+        product_name = product_mapping.get(col2, col2)  # Fallback to product_id if not found
+        writer.writerow([col1,product_name,col3,col4])
 

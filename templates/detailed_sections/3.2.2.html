@@ -142,31 +142,49 @@
                     </div>
                     <div class="analysis">
                         <h5>Analysis</h5>
-                        <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
-                        </p>
-                        <div class="graph">
-                            {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/3.2.2.png') }}"
-                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                            {% endif %}
-                        </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
-                        </p>
-                        <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
-                        </p>
-
+                        <p><strong>1. Product-Level Recommendation Patterns</strong><br>
+                            Each product has recommended products, some of which may be unrelated in terms of usage but may suggest cross-selling opportunities. This may aim to encourage diverse purchases rather than sticking to related categories.</p>
+                            
+                            <p><strong>Examples:</strong><br>
+                            - <strong>Face Serum</strong>: Recommends a <strong>Power Bank</strong> and <strong>Wireless Earbuds</strong>—which are not skincare-related but may appeal to customers interested in lifestyle and tech gadgets.<br>
+                            - <strong>Gaming Mouse</strong>: Recommends <strong>Yoga Mat</strong> and <strong>Running Shoes</strong>. This suggests a pairing with wellness and fitness items, targeting customers interested in both gaming and a healthy lifestyle.</p>
+                            
+                            <p><strong>2. Product Pairs and Mutual Recommendations</strong><br>
+                            Certain products are mutually recommended, meaning Product A recommends Product B, and Product B recommends Product A. This reflects a strong bidirectional interest pattern, which can indicate potential for bundled sales.</p>
+                            
+                            <p><strong>Examples:</strong><br>
+                            - <strong>Wireless Earbuds</strong> and <strong>Comfort Pillow</strong> are recommended for each other, potentially appealing to users interested in comfort, relaxation, or lifestyle enhancement.<br>
+                            - <strong>Yoga Mat</strong> and <strong>Running Shoes</strong> also recommend each other, appealing to fitness enthusiasts who may need complementary workout accessories.</p>
+                            
+                            <p><strong>3. Cross-Category Recommendations</strong><br>
+                            The recommendations are designed to encourage cross-category purchases. For instance, beauty products, tech gadgets, home goods, and fitness items are intermixed in recommendations.</p>
+                            
+                            <p><strong>Examples:</strong><br>
+                            - <strong>Scented Candles</strong> are recommended with <strong>Gaming Mouse</strong> and <strong>Wireless Earbuds</strong>, indicating an attempt to merge relaxation products with tech or lifestyle items.<br>
+                            - <strong>Power Bank</strong> has recommendations from the skincare (Face Serum) and lifestyle categories (Hydro Bottle), possibly targeting users who are interested in varied categories.</p>
+                            
+                            <p><strong>4. Frequency of Recommendation</strong><br>
+                            Some products appear more frequently across different recommendations, possibly highlighting them as more universally appealing or widely applicable products.</p>
+                            
+                            <p><strong>Examples:</strong><br>
+                            - <strong>Wireless Earbuds</strong> and <strong>Running Shoes</strong> are each recommended by three different products, suggesting they are in high demand and could attract a broad customer base.<br>
+                            - <strong>Face Serum</strong> and <strong>Comfort Pillow</strong> appear as recommendations for multiple products, which could indicate they are either popular or have been positioned as complementary to many other items.</p>
+                            
+                            <p><strong>5. Targeting Customer Lifestyles</strong><br>
+                            The recommendation setup seems tailored to connect products that together appeal to specific lifestyle segments, such as fitness enthusiasts, tech users, or comfort-focused customers.</p>
+                            
+                            <p><strong>Example Clusters:</strong><br>
+                            - <strong>Tech and Fitness</strong>: <strong>Gaming Mouse</strong>, <strong>Yoga Mat</strong>, and <strong>Running Shoes</strong> target customers who might blend gaming with physical activity.<br>
+                            - <strong>Relaxation and Comfort</strong>: <strong>Scented Candles</strong>, <strong>Cotton Sheets</strong>, and <strong>Comfort Pillow</strong> focus on comfort and wellness, appealing to customers prioritizing relaxation.</p>
+                            
+                            <p><strong>6. Potential for Cross-Selling and Upselling</strong><br>
+                            By recommending varied product types, this setup aims to cross-sell products across categories. For example:<br>
+                            - A customer interested in <strong>Face Serum</strong> might also purchase <strong>Wireless Earbuds</strong>.<br>
+                            - Customers who buy <strong>Yoga Mat</strong> might consider <strong>Running Shoes</strong> for completing their workout setup.</p>
+                            
+                            <p><strong>Summary</strong><br>
+                            The recommendation system creates diverse and lifestyle-oriented product pairings that could encourage customers to make additional purchases beyond their original interest. By intertwining different product categories (tech, beauty, fitness, and home goods), it capitalizes on cross-selling opportunities that are likely based on lifestyle compatibility rather than strict product relevance. For further improvement, you could analyze customer behavior data to verify if these recommendations lead to higher conversion rates and if any clusters perform better in sales or customer engagement.</p>
+                            
                     </div>
                 </div>
             </div>

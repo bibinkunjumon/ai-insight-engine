@@ -160,31 +160,82 @@
                             product.</p>
                         <p>• Potential Inventory Issues: Identify products with consistently high or low stock levels
                             compared to their optimal values.</p>
-                            <div class="graph">
-                                
-                                <img src="{{ url_for('static', filename='images/2.1.2-1.png') }}"
-                                    alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                              
-                            </div>    
-                            <div class="graph">
-                                
-                                <img src="{{ url_for('static', filename='images/2.1.2-2.png') }}"
-                                    alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                              
-                            </div>    
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/2.1.2-1.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/2.1.2-2.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
                         <p><strong>Key Findings:</strong></p>
-                        <p>• Overstocked Products:</p>
-                        <p> - All ten products showed periods of being overstocked, with the following details:</p>
-                        <p> - Products PD1001, PD1005, and PD1010 were overstocked for all 31 days in the dataset.</p>
-                        <p> - Products PD1002, PD1003, PD1004, PD1007, PD1008, and PD1009 also experienced significant
-                            overstocking.</p>
-                        <p> - Product PD1006 had the fewest overstocked days.</p>
-                        <p>• Understocked Products: There were no instances of understocking identified in the dataset,
-                            indicating that the current stock levels were consistently equal to or higher than the
-                            optimal stock quantities.</p>
-                        <p>• Stock Trends: The daily changes in stock levels for each product varied, providing insights
-                            into how stock levels were managed over time. This trend information can help identify which
-                            products may need adjustments in replenishment strategies.</p>
+                        <p>
+                            The analysis of the stock data for various products throughout January 2020 reveals
+                            important trends and implications for inventory management.
+                            Starting with the Face Serum, it has maintained a relatively high current stock level,
+                            peaking at 395 units and gradually decreasing to 331 units by the end of the month.
+                            Despite a consistent demand indicated by an optimal stock quantity of 34, the current stock
+                            far exceeds this, suggesting a potential overstock situation that could tie up capital.
+                        </p>
+                        <p>
+                            The Gaming Mouse exhibits a concerning trend as well, starting with 237 units and declining
+                            to 79 units. This substantial drop indicates a high turnover rate, yet the optimal stock of
+                            78 is still not achieved at the end of the month, signaling the need for replenishment to
+                            meet ongoing demand.
+                        </p>
+                        <p>
+                            For the Power Bank, there was a significant decrease in stock from 66 to 30 units early in
+                            January, which raises concerns about potential stockouts. However, an anomaly occurs on
+                            January 24th, when the stock dramatically increases to 500, suggesting an influx of
+                            inventory that could lead to overstocking if demand does not rise correspondingly.
+                        </p>
+                        <p>
+                            The Scented Candles show a steady decrease from 500 to 317 units, despite an optimal
+                            quantity of 230. This trend indicates that while demand exists, there may be room to
+                            optimize stock levels more effectively to avoid wastage or markdowns.
+                        </p>
+                        <p>
+                            The Wireless Earbuds reflect a gradual decline from 224 to 140 units, again indicating a
+                            steady demand but not aligning with the optimal quantity of 28. Similar trends are observed
+                            with the Yoga Mat and Hydro Bottle, both demonstrating significant fluctuations in stock
+                            levels, with the Hydro Bottle showing a particularly high optimal stock requirement of 229.
+                        </p>
+                        <p>
+                            Current stock levels for Cotton Sheets and Comfort Pillows also reflect a trend towards
+                            depletion, although their optimal quantities are comparatively lower. The Yoga Mat
+                            experienced a surge to 500 units on January 20, raising questions about inventory management
+                            practices and demand forecasting.
+                        </p>
+                        <p>
+                            In summary, while some products show strong sales potential, others are at risk of
+                            overstocking or stockouts. Moving forward, the following recommendations can be made:
+                        <ul>
+                            <li><strong>Conduct Demand Forecasting:</strong> Regularly analyze sales data to anticipate
+                                future demand more accurately, especially for fast-moving items like Gaming Mice and
+                                Wireless Earbuds.</li>
+                            <li><strong>Implement Inventory Management Software:</strong> Utilize technology to track
+                                inventory levels in real-time, helping to maintain optimal stock levels and avoid
+                                overstock or stockouts.</li>
+                            <li><strong>Adjust Reorder Points:</strong> Reassess reorder points based on recent sales
+                                trends and fluctuations to ensure timely replenishment of popular products.</li>
+                            <li><strong>Promote Slow-Moving Items:</strong> Develop marketing strategies to boost sales
+                                of items with declining stock levels, especially those nearing their optimal quantity.
+                            </li>
+                            <li><strong>Inventory Audits:</strong> Regular audits should be conducted to identify
+                                discrepancies between stock levels and optimal quantities, aiding in more effective
+                                decision-making.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            By implementing these strategies, the company can enhance its inventory management
+                            practices, ensuring a balance between supply and demand while optimizing capital
+                            utilization.
+                        </p>
+
 
                     </div>
                 </div>

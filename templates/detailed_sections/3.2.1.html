@@ -142,30 +142,57 @@
                     </div>
                     <div class="analysis">
                         <h5>Analysis</h5>
-                        <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
+                        <p><strong>Popular Products:</strong> Products like "Comfort Pillow," "Yoga Mat," and "Face
+                            Serum" consistently appear in search and purchase patterns. "Comfort Pillow" has high
+                            purchase counts across customers, while "Yoga Mat" and "Face Serum" show popularity in both
+                            searches and purchases.</p>
+
+                        <p><strong>High Purchase-to-Search Ratios:</strong> "Comfort Pillow" and "Cotton Sheets"
+                            demonstrate relatively high conversion rates for certain customers, such as Customer ID
+                            C1001, who made 30 purchases out of 32 searches for "Comfort Pillow." This trend suggests
+                            these products are highly desirable once searched.</p>
+
+                        <p><strong>Low Purchase-to-Search Ratios:</strong> Products like "Power Bank" and "Scented
+                            Candles" exhibit a low purchase-to-search ratio among several customers. For instance,
+                            Customer ID C1005 searched for "Power Bank" 36 times but made only 1 purchase. These
+                            products may need more targeted promotions or improved recommendations to boost purchases.
                         </p>
-                        <div class="graph">
-                            {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/3.2.1.png') }}"
-                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                            {% endif %}
-                        </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
+
+                        <p><strong>Frequent Recommendations:</strong> Recommended products for high-demand items such as
+                            "Face Serum" and "Gaming Mouse" include related items like "Power Bank" and "Yoga Mat,"
+                            suggesting bundling potential. However, it's notable that recommended products are not
+                            always aligned with the actual high-purchase products, suggesting room for optimization in
+                            recommendation algorithms.</p>
+
+                        <p><strong>Low-Interest Products:</strong> "Running Shoes" has notably low engagement, with many
+                            customers showing zero purchases despite some searches. This pattern highlights "Running
+                            Shoes" as a product with either low visibility or interest, indicating it may need
+                            reassessment in terms of placement, promotion, or even inclusion.</p>
+
+                        <p><strong>Purchase Patterns by Customer:</strong> Certain customers show distinct purchasing
+                            patterns. For instance, Customer ID C1003 favors "Yoga Mat" with 33 purchases and has low
+                            interest in "Power Bank" and "Gaming Mouse." Tailoring marketing and offers for these
+                            customers based on their preferences could increase engagement.</p>
+
+                        <p><strong>Cross-Selling Opportunities:</strong> For products like "Face Serum" and "Wireless
+                            Earbuds," which are often paired as recommendations, encouraging cross-sells in the buying
+                            journey could increase sales. Additionally, high-value items like "Gaming Mouse" paired with
+                            fitness products like "Yoga Mat" hint at possible cross-category appeal.</p>
+
+                        <p><strong>Customer-Specific Insights:</strong> Customers such as C1002 and C1004 demonstrate
+                            more balanced shopping behaviors with moderate search and purchase numbers across a variety
+                            of products. Personalized marketing that leverages this balance by recommending new products
+                            might engage these customers further.</p>
+
+                        <p><strong>High Engagement Products:</strong> "Yoga Mat," "Comfort Pillow," and "Face Serum" are
+                            among the products with both high search and purchase numbers across customers, indicating
+                            high engagement. Highlighting these items in campaigns may lead to better sales performance.
                         </p>
-                        <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
-                        </p>
+
+                        <p><strong>Recommendations for Improvement:</strong> To boost conversion rates for
+                            lower-performing products, targeted offers, adjusted recommendations, and strategic
+                            visibility improvements should be considered. For instance, "Running Shoes" might benefit
+                            from improved recommendations or bundling with more popular fitness-related items.</p>
 
                     </div>
                 </div>

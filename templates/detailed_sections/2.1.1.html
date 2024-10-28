@@ -143,29 +143,91 @@
                     <div class="analysis">
                         <h5>Analysis</h5>
                         <p>
-                            In this section, we will provide a detailed analysis of the data presented in the table and
-                            graph.
-                            The total searches per product indicate the level of interest and demand for each item.
-                            A higher number of searches suggests that the product is popular among customers, while
-                            lower search numbers may indicate less interest or visibility.
+                            The inventory data from late January 2020 provides a snapshot of current stock levels
+                            relative to optimal quantities for various products. A significant concern is evident across
+                            multiple items, particularly the Gaming Mouse, Power Bank, and Scented Candles, which all
+                            show declining stock levels below their optimal requirements.
                         </p>
+                        <p>
+                            Starting with the <strong>Gaming Mouse</strong>, current stock levels have fallen from 64
+                            units on January 28 to 55 units by January 31, while the optimal stock quantity remains at
+                            78. This downward trend suggests a rapid turnover but also indicates a potential risk of
+                            stockout if replenishment does not occur soon.
+                        </p>
+                        <p>
+                            The <strong>Power Bank</strong> exhibits an alarming trend, with stock levels decreasing
+                            from 24 units on January 17 to just 12 by January 23, falling short of the optimal level of
+                            27. Such low inventory levels could lead to missed sales opportunities and dissatisfied
+                            customers if demand continues.
+                        </p>
+                        <p>
+                            Regarding the <strong>Scented Candles</strong>, there is a notable decline in stock from 202
+                            units on January 15 to only 17 units by January 23. The optimal quantity is 230, indicating
+                            that sales have outpaced inventory significantly. This situation suggests that either the
+                            product is highly popular, or initial stock levels were insufficient to meet customer
+                            demand.
+                        </p>
+                        <p>
+                            The <strong>Yoga Mat</strong> shows a gradual decrease from 82 units on January 6 to just 11
+                            units by January 19. This trend indicates that while sales are steady, the stock level is
+                            insufficient compared to the optimal quantity of 86, which could lead to stockouts if demand
+                            continues.
+                        </p>
+                        <p>
+                            The <strong>Hydro Bottle</strong> is currently at 20 units, significantly below its optimal
+                            stock level of 229. This dramatic decline highlights a critical need for replenishment to
+                            avoid a complete stockout, as current stock levels have decreased from 220 units on January
+                            14.
+                        </p>
+                        <p>
+                            <strong>Running Shoes</strong> and <strong>Cotton Sheets</strong> also reflect decreasing
+                            trends. The Running Shoes drop from 65 to 12 units, while Cotton Sheets decline from 74 to
+                            11 units. Both products are nearing critical low levels compared to their optimal
+                            quantities, indicating that immediate action is required to replenish these stocks.
+                        </p>
+                        <p>
+                            In summary, the data indicates a significant mismatch between current stock levels and
+                            optimal quantities across several products, raising concerns about potential stockouts and
+                            lost sales. Recommendations for inventory management include:
+                        <ul>
+                            <li><strong>Immediate Stock Replenishment:</strong> Prioritize ordering for high-demand
+                                items such as Scented Candles, Power Banks, and Hydro Bottles to restore optimal stock
+                                levels.</li>
+                            <li><strong>Review Sales Trends:</strong> Analyze sales data to better forecast demand for
+                                each product and adjust stock levels accordingly.</li>
+                            <li><strong>Implement Inventory Alerts:</strong> Set alerts for low stock levels to trigger
+                                automatic reordering when inventory falls below a certain threshold.</li>
+                            <li><strong>Evaluate Optimal Stock Levels:</strong> Regularly reassess optimal stock
+                                quantities based on current market trends and historical sales data to ensure alignment
+                                with demand.</li>
+                            <li><strong>Consider Safety Stock:</strong> Maintain a safety stock buffer for high-demand
+                                products to mitigate risks of stockouts during peak sales periods.</li>
+                        </ul>
+                        </p>
+                        <p>
+                            By taking these actions, the company can enhance its inventory management processes,
+                            ensuring that stock levels align more closely with consumer demand and optimizing sales
+                            potential.
+                        </p>
+
                         <div class="graph">
-                            {% if image_exists %}
-                            <img src="{{ url_for('static', filename='images/2.1.1.png') }}"
+
+                            <img src="{{ url_for('static', filename='images/2.1.1-1.png') }}"
                                 alt="Graph representing total searches per product" style="width: 100%; height: auto;">
-                            {% endif %}
+
                         </div>
-                        <p>
-                            Additionally, trends can be observed over time, allowing for strategic decisions regarding
-                            inventory management and marketing efforts. Understanding these patterns can help optimize
-                            stock levels and improve sales strategies.
-                        </p>
-                        <p>
-                            Furthermore, we can analyze correlations between search volume and sales performance,
-                            which can guide future product launches and promotional activities. By continuously
-                            monitoring these metrics, we can refine our approach and enhance overall business
-                            performance.
-                        </p>
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/2.1.1-2.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
+                        <div class="graph">
+
+                            <img src="{{ url_for('static', filename='images/2.1.1-3.png') }}"
+                                alt="Graph representing total searches per product" style="width: 100%; height: auto;">
+
+                        </div>
 
                     </div>
                 </div>
